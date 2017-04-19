@@ -30,9 +30,16 @@ function renderAddTodoAtBottom(input, todoList) {
     </div>`;
 }
 
+
 function renderInput() {
-    return `<form class="todo__input"><input type="text" id="todoInput"><button type="submit" id="addTodo">Add</button></form>`;
+    return `<form name="myForm" class="todo__input">
+            <input type="text" id="todoInput" name="todoInput">
+            <button type="submit" id="addTodo" onclick="setTimeout(function() {
+        document.myForm.todoInput.focus();
+    }, 0)">Add</button>
+        </form>`;
 }
+
 
 function renderTodos(todoItems) {
     return `<ul class="todo">${todoItems}</ul>`;
