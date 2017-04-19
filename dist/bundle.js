@@ -9618,7 +9618,7 @@
 	}
 
 	function renderInput() {
-	    return '<form class="todo__input"><input type="text" id="todoInput"><button type="submit" id="addTodo">Add</button></form>';
+	    return '<form name="myForm" class="todo__input">\n            <input type="text" id="todoInput" name="todoInput">\n            <button type="submit" id="addTodo" onclick="setTimeout(function() {\n        document.myForm.todoInput.focus();\n    }, 0)">Add</button>\n        </form>';
 	}
 
 	function renderTodos(todoItems) {
