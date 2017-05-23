@@ -9618,7 +9618,12 @@
 	}
 
 	function renderInput() {
-	    return '<form class="todo__input"><input type="text" id="todoInput"><button type="submit" id="addTodo">Add</button></form>';
+	    validateForm();
+	    return '<form\n            name="inputForm"\n            class="todo__input"\n        >\n            <input\n                type="text"\n                id="todoInput"\n            >\n            <button\n                type="submit"\n                id="addTodo"\n                onsubmit="return validateForm()"\n            >\n                Add\n            </button>\n    </form>';
+	}
+	function validateForm() {
+
+	    console.log(document.getElementById('todoInput'));
 	}
 
 	function renderTodos(todoItems) {
