@@ -32,9 +32,9 @@ function renderAddTodoAtBottom(input, todoList) {
 
 
 function renderInput() {
-    validateForm();
     return `<form
             name="inputForm"
+            id="inputForm"
             class="todo__input"
         >
             <input
@@ -43,16 +43,12 @@ function renderInput() {
             >
             <button
                 type="submit"
+                onsubmit={ document.getElementById('todoInput').focus() }
                 id="addTodo"
-                onsubmit="return validateForm()"
             >
                 Add
             </button>
     </form>`;
-}
-function validateForm() {
-
-    console.log(document.getElementById('todoInput'));
 }
 
 function renderTodos(todoItems) {
@@ -61,7 +57,7 @@ function renderTodos(todoItems) {
 
 function renderTodoItem(todo) {
     const todoClass = `todo__item todo__item--${todo.done ? 'done' : 'open'}`;
-    return `<li class="${todoClass}">
+    return `<li class="${todoClass}" id="todoClass">
         <input class="js_toggle_todo" type="checkbox" data-id="${todo.id}"${todo.done ? ' checked' : ''}>
         ${todo.text}
     </li>`;

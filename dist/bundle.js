@@ -9618,12 +9618,7 @@
 	}
 
 	function renderInput() {
-	    validateForm();
-	    return '<form\n            name="inputForm"\n            class="todo__input"\n        >\n            <input\n                type="text"\n                id="todoInput"\n            >\n            <button\n                type="submit"\n                id="addTodo"\n                onsubmit="return validateForm()"\n            >\n                Add\n            </button>\n    </form>';
-	}
-	function validateForm() {
-
-	    console.log(document.getElementById('todoInput'));
+	    return '<form\n            name="inputForm"\n            id="inputForm"\n            class="todo__input"\n        >\n            <input\n                type="text"\n                id="todoInput"\n            >\n            <button\n                type="submit"\n                onsubmit={ document.getElementById(\'todoInput\').focus() }\n                id="addTodo"\n            >\n                Add\n            </button>\n    </form>';
 	}
 
 	function renderTodos(todoItems) {
@@ -9632,7 +9627,7 @@
 
 	function renderTodoItem(todo) {
 	    var todoClass = 'todo__item todo__item--' + (todo.done ? 'done' : 'open');
-	    return '<li class="' + todoClass + '">\n        <input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n        ' + todo.text + '\n    </li>';
+	    return '<li class="' + todoClass + '" id="todoClass">\n        <input class="js_toggle_todo" type="checkbox" data-id="' + todo.id + '"' + (todo.done ? ' checked' : '') + '>\n        ' + todo.text + '\n    </li>';
 		}
 
 /***/ }),
